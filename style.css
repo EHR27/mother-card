@@ -7,9 +7,11 @@ body, div, h1, h2, form, fieldset, input, textarea, footer, p {
 
 body { 
     -webkit-perspective: 800px;
+    perspective: 800px;
     background: rgba(122, 129, 135, 1);
     background-image: linear-gradient(135deg, rgba(157, 191, 158, 0.9) 0%, rgba(81, 152, 114, 0.9) 20%, rgba(61, 90, 128, 0.9) 50%, rgba(85, 53, 85, 0.9) 100%);
     -webkit-animation: bugfix infinite 1s; 
+    animation: bugfix infinite 1s; 
 }
 
 @-webkit-keyframes bugfix { 
@@ -66,13 +68,14 @@ h1 {
     width: 530px;
     height: 390px;
     -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     z-index: 5;
     -webkit-transition: all 1.5s 1s linear;
+    transition: all 1.5s 1s linear;
 }
 
 #flap > div {
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     display: block;
     position: absolute;
     width: 100%;
@@ -83,6 +86,7 @@ h1 {
     top: 195px;
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/flap.png') no-repeat;
     -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 
 #closed_flap {
@@ -133,15 +137,13 @@ h1 {
     padding: 20px;
     border: 1px solid #fff;
     border-radius: 3px;
-    -webkit-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
-    -moz-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 14px #fff;
     box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
 }
 
 #checkbox:checked + #letter_wrap > #flap {
     -webkit-transition: all 2s linear;
+    transition: all 2s linear;
     transform: rotateX(180deg);
-    -webkit-transform: rotateX(180deg);
     z-index: -1;
 }
 
@@ -162,49 +164,34 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 8vw;
+    #wrap {
+        width: 90%;
     }
 
-    #letter_wrap {
-        height: 60vh;
-    }
-
-    #checkbox:checked + #letter_wrap {
-        height: 80vh;
-        top: -20vh;
+    #back, #flap, #closed_flap, #open_flap, #front {
+        width: 100%;
     }
 
     #letter {
-        top: 15vh;
-        height: 45vh;
-    }
-
-    #checkbox:checked + #letter_wrap > #letter {
-        height: 70vh;
+        width: 90%;
     }
 }
 
 @media (max-width: 480px) {
+    #wrap {
+        width: 100%;
+    }
+
     h1 {
-        font-size: 10vw;
-    }
-
-    #letter_wrap {
-        height: 70vh;
-    }
-
-    #checkbox:checked + #letter_wrap {
-        height: 90vh;
-        top: -20vh;
+        font-size: 36px;
     }
 
     #letter {
-        top: 10vh;
-        height: 55vh;
+        width: 100%;
+        padding: 15px;
     }
 
     #checkbox:checked + #letter_wrap > #letter {
-        height: 80vh;
+        height: 70vh;
     }
 }
